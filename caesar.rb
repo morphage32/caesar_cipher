@@ -1,4 +1,5 @@
 def caesar_cipher(original_message, shift_number)
+    shift_number = shift_number % 26
     ascii_message = original_message.bytes
     encoded_message = ascii_message.map { |number|
         # Check if number evaluates to a letter in ascii
@@ -17,8 +18,8 @@ def caesar_cipher(original_message, shift_number)
 
     }
 
-    puts encoded_message.pack('c*')
+    return encoded_message.pack('c*')
 end
 
-caesar_cipher("What a string!", 5)
-caesar_cipher("Pbzobq Jbppxdb.", 3)
+puts caesar_cipher("What a string!", 5)
+puts caesar_cipher("Pbzobq Jbppxdb.", 3)
